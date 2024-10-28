@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='img/pexels-tarik-nachat-28300-112116.jpg') }}'); /* Replace with your background image path */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            color: #333; /* Dark text */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50; /* Dark blue color */
+        }
+
+        h3 {
+            color: #34495e; /* Medium blue color */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+        }
+
+        li {
+            background: rgba(236, 240, 241, 0.9); /* Light gray for list items with slight transparency */
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto; /* Center the logo */
+            width: 150px; /* Adjust width as needed */
+        }
+
+        .container {
+            max-width: 800px; /* Max width for content */
+            margin: 0 auto; /* Center the content */
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* White background for content with slight transparency */
+            border-radius: 8px; /* Rounded corners for content */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"> <!-- Replace with your logo path -->
+            <h2>Admin Dashboard</h2>
+        </div>
+        <h3>All Flights</h3>
+        <ul>
+            {% for flight in flights %}
+                <li>Flight Number: {{ flight.FlightNumber }}, From: {{ flight.DepartureCity }} to {{ flight.DestinationCity }}</li>
+            {% endfor %}
+        </ul>
+        <h3>All Bookings</h3>
+        <ul>
+            {% for booking in bookings %}
+                <li>Booking ID: {{ booking.BookingID }}, Flight ID: {{ booking.FlightID }}, Email: {{ booking.UserEmail }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

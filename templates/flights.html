@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Flights</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('static/img/pexels-tarik-nachat-28300-112116.jpg'); /* Path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            color: #333; /* Dark text color */
+        }
+        .logo {
+            text-align: center; /* Center the logo */
+            margin-top: 20px; /* Space above the logo */
+        }
+        .logo img {
+            width: 150px; /* Logo width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        h1 {
+            text-align: center; /* Center the heading */
+            color: #2c3e50; /* Darker color for the heading */
+            margin-bottom: 30px; /* Space below the heading */
+        }
+        table {
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            border-radius: 10px; /* Rounded corners for the table */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for the table */
+        }
+        th {
+            background-color: #007bff; /* Bootstrap primary color for header */
+            color: white; /* White text for header */
+        }
+        td {
+            vertical-align: middle; /* Center-align text in cells */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Custom primary button color */
+            border-color: #007bff; /* Button border color */
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #0056b3; /* Button border color on hover */
+        }
+        .btn-secondary {
+            margin-top: 20px; /* Space above the button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="logo">
+            <img src="static/img/logo.png" alt="SB FlightConnect Logo"> <!-- Path to your logo -->
+        </div>
+        <h1>Available Flights</h1>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Flight Number</th>
+                    <th>Departure City</th>
+                    <th>Destination City</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Available Seats</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for flight in flights %}
+                <tr>
+                    <td>{{ flight.FlightNumber }}</td>
+                    <td>{{ flight.DepartureCity }}</td>
+                    <td>{{ flight.DestinationCity }}</td>
+                    <td>{{ flight.DepartureTime }}</td>
+                    <td>{{ flight.ArrivalTime }}</td>
+                    <td>{{ flight.AvailableSeats }}</td>
+                    <td>
+                        <a href="{{ url_for('book_flight', flight_id=flight.FlightID) }}" class="btn btn-primary">Book Now</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7">No flights available for the selected route.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('search_flights') }}" class="btn btn-secondary">Back to Search</a>
+    </div>
+</body>
+</html>

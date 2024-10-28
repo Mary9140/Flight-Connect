@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Flight</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('/static/img/pexels-tarik-nachat-28300-112116.jpg'); /* Path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            color: #333; /* Dark text color */
+            font-family: Arial, sans-serif; /* Change font family */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            border-radius: 10px; /* Rounded corners for the container */
+            padding: 30px; /* Padding inside the container */
+            margin-top: 50px; /* Space above the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for the container */
+        }
+        .logo {
+            text-align: center; /* Center the logo */
+            margin-bottom: 20px; /* Space below the logo */
+        }
+        .logo img {
+            width: 150px; /* Logo width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        h2 {
+            text-align: center; /* Center the heading */
+            color: #2c3e50; /* Darker color for the heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+        label {
+            display: block; /* Make label block to stack inputs */
+            margin: 10px 0 5px; /* Space around the label */
+        }
+        input[type="email"],
+        input[type="text"],
+        input[type="submit"] {
+            width: 100%; /* Full width inputs */
+            padding: 10px; /* Padding inside inputs */
+            margin-bottom: 20px; /* Space below the inputs */
+            border-radius: 5px; /* Rounded corners for inputs */
+            border: 1px solid #ccc; /* Border style for inputs */
+        }
+        input[type="submit"] {
+            background-color: #007bff; /* Button background color */
+            color: white; /* Button text color */
+            cursor: pointer; /* Change cursor on hover */
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="/static/img/logo.png" alt="Your Logo"> <!-- Path to your logo -->
+        </div>
+        <h2>Book Flight</h2>
+        <p>Flight Number: {{ flight.FlightNumber }}</p>
+        <p>From: {{ flight.DepartureCity }} to {{ flight.DestinationCity }}</p>
+        <form method="POST">
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Name:</label>
+            <input type="text" name="name" required>
+            <input type="submit" value="Confirm Booking">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('static/background.jpg'); /* Path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            color: #333; /* Dark text color */
+            font-family: Arial, sans-serif; /* Change font family */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            border-radius: 10px; /* Rounded corners for the container */
+            padding: 30px; /* Padding inside the container */
+            margin-top: 50px; /* Space above the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for the container */
+        }
+        h2 {
+            text-align: center; /* Center the heading */
+            color: #2c3e50; /* Darker color for the heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thank You, {{ name }}!</h2>
+        <p>Your flight has been booked successfully.</p>
+        <p>We will send a confirmation email to you shortly.</p>
+        <a href="{{ url_for('search_flights') }}" class="btn btn-primary">Back to Search</a>
+    </div>
+</body>
+</html>

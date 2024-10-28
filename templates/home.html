@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SB FlightConnect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Font style */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-image: url('/static/img/pexels-tarik-nachat-28300-112116.jpg'); /* Path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            color: #333; /* Dark text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: center; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Optional: Add text shadow for better readability */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Large heading */
+            margin-bottom: 20px; /* Space below the heading */
+            color: #2c3e50; /* Darker color for the heading */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+            color: #3498db; /* Link color */
+            font-size: 1.2em; /* Slightly larger text for links */
+            margin: 0 15px; /* Space between links */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        a:hover {
+            color: #2980b9; /* Darker color on hover */
+        }
+
+        .navigation {
+            margin-top: 20px; /* Space above the navigation */
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="SB FlightConnect Logo" class="logo"> <!-- Replace with your logo path -->
+    <h1>Welcome to SB FlightConnect</h1>
+    <div class="navigation">
+        <a href="{{ url_for('search_flights') }}">Search Flights</a> |
+        <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+    </div>
+</body>
+</html>
